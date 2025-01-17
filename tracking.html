@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מעקב משלוח השבוע</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
+<script>
         let stage = 0; // משתנה שיתעד את שלב המעקב
 
         function updateStatus() {
@@ -20,10 +20,15 @@
             if (stage < statuses.length) {
                 document.getElementById("status").innerText = statuses[stage];
                 stage++;
+                // עדכון הצבע של שלב המעקב
+                document.getElementsByClassName("step")[stage - 1].classList.add("completed");
             } else {
                 document.getElementById("status").innerText = "ההזמנה הושלמה! תודה על שהזמנת אצלנו!";
             }
         }
+
+        // הפעלת עדכון אוטומטי כל 6 שניות
+        setInterval(updateStatus, 6000);
     </script>
 </head>
 <body>
