@@ -6,6 +6,7 @@ body {
     padding: 0;
     color: #333; /* Dark text for readability */
     text-align: center;
+    direction:rtl; 
 }
 
 /* Header */
