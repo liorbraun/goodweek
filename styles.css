@@ -36,6 +36,33 @@ nav {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.status-box {
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    color: #4CAF50; /* צבע ירוק */
+    font-weight: bold;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.step {
+    flex: 1;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    color: #777;
+}
+
+.step.completed {
+    background-color: #4CAF50; /* ירוק עבור שלב שהושלם */
+    color: white;
+}
+
+
 
 nav ul {
     list-style-type: none;
