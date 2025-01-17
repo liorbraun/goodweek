@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מעקב משלוח השבוע</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        let stage = 0; // משתנה שיתעד את שלב המעקב
+
+        function updateStatus() {
+            const statuses = [
+                "ההזמנה התקבלה!",
+                "ההזמנה מוכנה ויוצאת לדרך!",
+                "המשלוח בדרכו אליך!",
+                "המשלוח הגיע ליעדו!"
+            ];
+
+            // עדכון הסטטוס לפי השלב הנוכחי
+            if (stage < statuses.length) {
+                document.getElementById("status").innerText = statuses[stage];
+                stage++;
+            } else {
+                document.getElementById("status").innerText = "ההזמנה הושלמה! תודה על שהזמנת אצלנו!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>מעקב משלוח הפיצה שלך</h1>
+    </header>
+
+    <section class="tracking">
+        <h2>הזמנתך בעבודה</h2>
+        <div class="status-box">
+            <p id="status">ההזמנה התקבלה!</p>
+        </div>
+
+        <div class="steps">
+            <div class="step completed">
+                <p>ההזמנה התקבלה</p>
+            </div>
+            <div class="step">
+                <p>ההזמנה מוכנה</p>
+            </div>
+            <div class="step">
+                <p>המשלוח בדרך</p>
+            </div>
+            <div class="step">
+                <p>המשלוח הגיע</p>
+            </div>
+        </div>
+
+        <button onclick="updateStatus()">עדכון סטטוס</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 כל הזכויות שמורות לפיצה שלנו</p>
+    </footer>
+</body>
+</html>
