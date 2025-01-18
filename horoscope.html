@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>הורוסקופ יומי</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function showHoroscope(sign) {
+            const horoscopes = {
+                "טלה": "היום הוא יום מצוין להתחיל פרויקטים חדשים ולהעז!",
+                "שור": "מומלץ להתמקד ביציבות פיננסית וקשרים אישיים.",
+                "תאומים": "תקשורת עם אחרים תהיה קלה וזורמת היום.",
+                "סרטן": "זה זמן לחשוב על המשפחה והבית.",
+                "אריה": "היום מתאים להראות את הביטחון העצמי שלך.",
+                "בתולה": "שימו לב לפרטים הקטנים במשימות שלכם.",
+                "מאזניים": "איזון הוא המפתח להצלחה היום.",
+                "עקרב": "העמקה בנושאים אישיים תוביל לתובנות חדשות.",
+                "קשת": "זה יום מלא בהרפתקאות ואפשרויות חדשות.",
+                "גדי": "מומלץ להתמקד בקריירה ובמטרות לטווח ארוך.",
+                "דלי": "חדשנות ורעיונות יצירתיים יובילו אותך היום.",
+                "דגים": "הקשיבו לאינטואיציה שלכם וקחו זמן למנוחה."
+            };
+
+            const message = horoscopes[sign] || "אין מידע על המזל שבחרת.";
+            alert(`${sign}: ${message}`);
+        }
+    </script>
+
+    
 </head>
 <body>
     <header>
@@ -23,13 +46,21 @@
 
     <section class="horoscope">
         <h2>הורוסקופ לכל מזל</h2>
-        <p>היום, המזל שלכם...!</p>
-        <ul>
-            <li><strong>דלי:</strong> תחושת שחרור והזדמנויות חדשות.</li>
-            <li><strong>דגים:</strong> יום טוב להתחיל פרויקטים חדשים.</li>
-            <li><strong>טלה:</strong> אתם במרכז העניינים!</li>
-            <li><strong>שור:</strong> זמן טוב לעשות סדר בחיים האישיים.</li>
-        </ul>
+    <p>בחרו את המזל שלכם כדי לגלות מה צפוי לכם היום:</p>
+    <div class="zodiac-container">
+        <div class="zodiac" onclick="showHoroscope('טלה')">חתול</div>
+        <div class="zodiac" onclick="showHoroscope('שור')">ארנב</div>
+        <div class="zodiac" onclick="showHoroscope('תאומים')">תאומים</div>
+        <div class="zodiac" onclick="showHoroscope('סרטן')">סרטן</div>
+        <div class="zodiac" onclick="showHoroscope('אריה')">אריה</div>
+        <div class="zodiac" onclick="showHoroscope('בתולה')">בתולה</div>
+        <div class="zodiac" onclick="showHoroscope('מאזניים')">מאזניים</div>
+        <div class="zodiac" onclick="showHoroscope('עקרב')">עקרב</div>
+        <div class="zodiac" onclick="showHoroscope('קשת')">קשת</div>
+        <div class="zodiac" onclick="showHoroscope('גדי')">גדי</div>
+        <div class="zodiac" onclick="showHoroscope('דלי')">מארבל בטון</div>
+        <div class="zodiac" onclick="showHoroscope('דגים')">דגים</div>
+    </div> </ul>
     </section>
 
     <footer>
