@@ -5,31 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מעקב משלוח השבוע</title>
     <link rel="stylesheet" href="styles.css">
-<script>
-        let stage = 0; // משתנה שיתעד את שלב המעקב
-
-        function updateStatus() {
-            const statuses = [
-                "ההזמנה התקבלה!",
-                "ההזמנה מוכנה ויוצאת לדרך!",
-                "המשלוח בדרכו אליך!",
-                "המשלוח הגיע ליעדו!"
-            ];
-
-            // עדכון הסטטוס לפי השלב הנוכחי
-            if (stage < statuses.length) {
-                document.getElementById("status").innerText = statuses[stage];
-                stage++;
-                // עדכון הצבע של שלב המעקב
-                document.getElementsByClassName("step")[stage - 1].classList.add("completed");
-            } else {
-                document.getElementById("status").innerText = "ההזמנה הושלמה! תודה על שהזמנת אצלנו!";
-            }
-        }
-
-        // הפעלת עדכון אוטומטי כל 6 שניות
-        setInterval(updateStatus, 6000);
-    </script>
 </head>
 <body>
     <header>
@@ -43,37 +18,194 @@
                 <li><a href="gossip.html">רכילות</a></li>
                 <li><a href="tracking.html">מעקב השבוע</a></li>
                 <li><a href="buymeacoffee.html">כוס קפה</a></li>
+                <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מעקב משלוח השבוע</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>מעקב משלוח השבוע שלך</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">דף הבית</a></li>
+                <li><a href="horoscope.html">הורוסקופ</a></li>
+                <li><a href="forecast.html">תחזית</a></li>
+                <li><a href="comments.html">תגובות</a></li>
+                <li><a href="gossip.html">רכילות</a></li>
+                <li><a href="tracking.html">מעקב השבוע</a></li>
+                <li><a href="buymeacoffee.html">כוס קפה</a></li>
+                 <li><a href="about.html">אודות האתר </a></li>
             </ul>
         </nav>
-        
     </header>
 
     <section class="tracking">
-        <h2>הזמנתך בעבודה</h2>
-        <div class="status-box">
-            <p id="status">ההזמנה התקבלה!</p>
-        </div>
+        <h2>מעקב אחר המשלוח שלך</h2>
+        
+        <div class="tracking-container">
+            <div class="status-box">
+                <p id="status">ההזמנה התקבלה!</p>
+                <div class="order-number">
+                    <p>מספר הזמנה: #12345</p>
+                </div>
+            </div>
 
-        <div class="steps">
-            <div class="step completed">
-                <p>ההזמנה התקבלה</p>
+            <div class="progress-bar">
+                <div class="progress-steps">
+                    <div class="step completed" id="step1">
+                        <div class="step-icon">✓</div>
+                        <div class="step-label">התקבל</div>
+                    </div>
+                    <div class="step" id="step2">
+                        <div class="step-icon">2</div>
+                        <div class="step-label">בהכנה</div>
+                    </div>
+                    <div class="step" id="step3">
+                        <div class="step-icon">3</div>
+                        <div class="step-label">במשלוח</div>
+                    </div>
+                    <div class="step" id="step4">
+                        <div class="step-icon">4</div>
+                        <div class="step-label">נמסר</div>
+                    </div>
+                </div>
+                <div class="progress-line"></div>
             </div>
-            <div class="step">
-                <p>ההזמנה מוכנה</p>
-            </div>
-            <div class="step">
-                <p>המשלוח בדרך</p>
-            </div>
-            <div class="step">
-                <p>המשלוח הגיע</p>
+
+            <div class="tracking-details">
+                <div class="estimated-time">
+                    <h3>זמן משוער להגעה:</h3>
+                    <p>30-40 דקות</p>
+                </div>
+                <button onclick="updateStatus()" class="update-button">רענון סטטוס</button>
             </div>
         </div>
-
-        <button onclick="updateStatus()">עדכון סטטוס</button>
     </section>
 
+    <script>
+        let currentStep = 1;
+
+        function updateStatus() {
+            const statuses = [
+                "ההזמנה התקבלה!",
+                "ההזמנה בהכנה...",
+                "המשלוח בדרך אליך!",
+                "המשלוח הגיע ליעדו!"
+            ];
+
+            if (currentStep <= 4) {
+                // עדכון הסטטוס הנוכחי
+                document.getElementById("status").innerText = statuses[currentStep - 1];
+                
+                // סימון השלב הנוכחי כהושלם
+                const currentStepElement = document.getElementById(`step${currentStep}`);
+                currentStepElement.classList.add("completed");
+                
+                // עדכון האייקון לוי
+                const stepIcon = currentStepElement.querySelector(".step-icon");
+                stepIcon.innerHTML = "✓";
+                
+                currentStep++;
+            }
+            
+            if (currentStep > 4) {
+                document.querySelector(".update-button").disabled = true;
+                document.querySelector(".update-button").textContent = "המשלוח הושלם";
+            }
+        }
+    </script>
+
     <footer>
-        <p>&copy; 2025 כל הזכויות שמורות לפיצה שלנו</p>
+        <p>&copy; 2025 כל הזכויות שמורות</p>
+    </footer>
+</body>
+</html>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tracking">
+        <h2>מעקב אחר המשלוח שלך</h2>
+        
+        <div class="tracking-container">
+            <div class="status-box">
+                <p id="status">ההזמנה התקבלה!</p>
+                <div class="order-number">
+                    <p>מספר הזמנה: #12345</p>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-steps">
+                    <div class="step completed" id="step1">
+                        <div class="step-icon">✓</div>
+                        <div class="step-label">התקבל</div>
+                    </div>
+                    <div class="step" id="step2">
+                        <div class="step-icon">2</div>
+                        <div class="step-label">בהכנה</div>
+                    </div>
+                    <div class="step" id="step3">
+                        <div class="step-icon">3</div>
+                        <div class="step-label">במשלוח</div>
+                    </div>
+                    <div class="step" id="step4">
+                        <div class="step-icon">4</div>
+                        <div class="step-label">נמסר</div>
+                    </div>
+                </div>
+                <div class="progress-line"></div>
+            </div>
+
+            <div class="tracking-details">
+                <div class="estimated-time">
+                    <h3>זמן משוער להגעה:</h3>
+                    <p>30-40 דקות</p>
+                </div>
+                <button onclick="updateStatus()" class="update-button">רענון סטטוס</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentStep = 1;
+
+        function updateStatus() {
+            const statuses = [
+                "ההזמנה התקבלה!",
+                "ההזמנה בהכנה...",
+                "המשלוח בדרך אליך!",
+                "המשלוח הגיע ליעדו!"
+            ];
+
+            if (currentStep <= 4) {
+                // עדכון הסטטוס הנוכחי
+                document.getElementById("status").innerText = statuses[currentStep - 1];
+                
+                // סימון השלב הנוכחי כהושלם
+                const currentStepElement = document.getElementById(`step${currentStep}`);
+                currentStepElement.classList.add("completed");
+                
+                // עדכון האייקון לוי
+                const stepIcon = currentStepElement.querySelector(".step-icon");
+                stepIcon.innerHTML = "✓";
+                
+                currentStep++;
+            }
+            
+            if (currentStep > 4) {
+                document.querySelector(".update-button").disabled = true;
+                document.querySelector(".update-button").textContent = "המשלוח הושלם";
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 כל הזכויות שמורות</p>
     </footer>
 </body>
 </html>
