@@ -3,20 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דף תגובות</title>
+    <title>תגובות</title>
     <link rel="stylesheet" href="styles.css">
+
     <script>
-        function showConfirmation() {
-            // מראה את הודעת האישור
-            document.getElementById("confirmationMessage").style.display = "block";
-            // מנקה את שדות הטופס
-            document.getElementById("commentForm").reset();
+        let comments = [];
+
+        function addComment(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            if (name && comment) {
+                comments.push({ name, comment });
+                document.getElementById('commentForm').reset();
+                displayComments();
+            }
+        }
+
+        function displayComments() {
+            const commentList = document.getElementById('comment-list');
+            commentList.innerHTML = '';
+
+            comments.forEach(({ name, comment }) => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `<strong>${name}:</strong> <p>${comment}</p>`;
+                commentList.appendChild(commentElement);
+            });
         }
     </script>
 </head>
 <body>
     <header>
-        <h1>שלח תגובה</h1>
+        <h1>תגובות</h1>
         <nav>
             <ul>
                 <li><a href="index.html">דף הבית</a></li>
@@ -25,17 +45,17 @@
                 <li><a href="comments.html">תגובות</a></li>
                 <li><a href="gossip.html">רכילות</a></li>
                 <li><a href="tracking.html">מעקב השבוע</a></li>
-                 <li><a href="buymeacoffee.html">כוס קפה</a></li>
-                 <li><a href="about.html">אודות האתר </a></li>
+                <li><a href="buymeacoffee.html">כוס קפה</a></li>
+                <li><a href="about.html">אודות האתר </a></li>
             </ul>
         </nav>
+
+        
     </header>
 
-    <section class="comments">
-        <h2>השאירו את התגובה שלכם</h2>
-
-        <!-- טופס תגובות -->
-        <form id="commentForm" onsubmit="event.preventDefault(); showConfirmation();">
+    <section>
+        <h2>השאירו תגובה</h2>
+        <form id="commentForm" onsubmit="addComment(event)">
             <label for="name">שם:</label>
             <input type="text" id="name" name="name" required><br><br>
 
@@ -45,9 +65,8 @@
             <button type="submit">שלח תגובה</button>
         </form>
 
-        <!-- הודעת אישור לאחר שליחה -->
-        <div id="confirmationMessage" style="display:none; color: green; font-size: 1.2em; margin-top: 20px;">
-            תודה, התגובה שלך נשלחה בהצלחה!
+        <div id="comment-list" class="comment-list">
+            <!-- כאן יופיעו התגובות -->
         </div>
     </section>
 
