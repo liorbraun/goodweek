@@ -58,24 +58,25 @@
             <div class="tracking-details">
                 <div class="estimated-time">
                     <h3>זמן משוער להגעה:</h3>
-                    <p>30-40 דקות</p>
+                    <p id="estimated-time">30-40 דקות</p>
+                    <p id="auto-update-status" class="update-status">מתעדכן אוטומטית כל 30 שניות...</p>
                 </div>
-                <button onclick="updateStatus()" class="update-button">רענון סטטוס</button>
             </div>
         </div>
     </section>
 
     <script>
         let currentStep = 1;
+        let estimatedMinutes = 35;
+        
+        const statuses = [
+            "ההזמנה התקבלה!",
+            "ההזמנה בהכנה...",
+            "המשלוח בדרך אליך!",
+            "המשלוח הגיע ליעדו!"
+        ];
 
         function updateStatus() {
-            const statuses = [
-                "ההזמנה התקבלה!",
-                "ההזמנה בהכנה...",
-                "המשלוח בדרך אליך!",
-                "המשלוח הגיע ליעדו!"
-            ];
-
             if (currentStep <= 4) {
                 // עדכון הסטטוס הנוכחי
                 document.getElementById("status").innerText = statuses[currentStep - 1];
@@ -88,14 +89,45 @@
                 const stepIcon = currentStepElement.querySelector(".step-icon");
                 stepIcon.innerHTML = "✓";
                 
+                // עדכון זמן משוער
+                estimatedMinutes = Math.max(0, estimatedMinutes - 10);
+                if (estimatedMinutes > 0) {
+                    document.getElementById("estimated-time").innerText = 
+                        `${estimatedMinutes}-${estimatedMinutes + 10} דקות`;
+                } else {
+                    document.getElementById("estimated-time").innerText = "הגיע ליעד!";
+                }
+                
                 currentStep++;
-            }
-            
-            if (currentStep > 4) {
-                document.querySelector(".update-button").disabled = true;
-                document.querySelector(".update-button").textContent = "המשלוח הושלם";
+
+                // אם הגענו לסוף התהליך
+                if (currentStep > 4) {
+                    document.getElementById("auto-update-status").innerText = "המשלוח הושלם!";
+                    document.getElementById("auto-update-status").style.color = "#4CAF50";
+                    clearInterval(updateInterval); // מפסיק את העדכון האוטומטי
+                }
             }
         }
+
+        // פונקציה שמתחילה את העדכון האוטומטי
+        function startAutoUpdate() {
+            // עדכון ראשוני מיד
+            setTimeout(updateStatus, 2000);
+            
+            // עדכונים כל 30 שניות
+            const updateInterval = setInterval(() => {
+                if (currentStep <= 4) {
+                    updateStatus();
+                } else {
+                    clearInterval(updateInterval);
+                }
+            }, 30000);
+            
+            return updateInterval;
+        }
+
+        // התחלת העדכון האוטומטי כשהדף נטען
+        const updateInterval = startAutoUpdate();
     </script>
 
     <footer>
