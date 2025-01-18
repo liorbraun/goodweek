@@ -63,14 +63,14 @@ nav {
 }
 
 
-        .zodiac-container {
+.zodiac-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             margin-top: 50px;
         }
-        .zodiac {
+.zodiac {
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -79,10 +79,9 @@ nav {
             cursor: pointer;
             transition: transform 0.3s;
         }
-        .zodiac:hover {
+.zodiac:hover {
             transform: scale(1.1);
         }
-
 
 nav ul {
     list-style-type: none;
