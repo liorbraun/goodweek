@@ -82,6 +82,25 @@ nav {
 .zodiac:hover {
             transform: scale(1.1);
         }
+.donation-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+.donation-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ff6600;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+.donation-button:hover {
+            background-color: #e65c00;
+        }
 
 nav ul {
     list-style-type: none;
