@@ -18,7 +18,7 @@
                 <li><a href="gossip.html">רכילות</a></li>
                 <li><a href="tracking.html">מעקב השבוע</a></li>
                 <li><a href="buymeacoffee.html">כוס קפה</a></li>
-                <li><a href="about.html">אודות האתר </a></li>
+                  <li><a href="about.html">אודות האתר </a></li>
             </ul>
         </nav>
     </header>
@@ -30,7 +30,7 @@
             <div class="status-box">
                 <p id="status">ההזמנה התקבלה!</p>
                 <div class="order-number">
-                    <p>מספר הזמנה: #12345</p>
+                    <p>מספר הזמנה: #<span id="order-number"></span></p>
                 </div>
             </div>
 
@@ -67,6 +67,24 @@
     </section>
 
     <script>
+        // פונקציה ליצירת מספר הזמנה רנדומלי
+        function generateOrderNumber() {
+            // יוצר תאריך נוכחי במבנה YYMMDD
+            const date = new Date();
+            const year = date.getFullYear().toString().slice(-2);
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            
+            // יוצר מספר רנדומלי בן 4 ספרות
+            const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            
+            // משלב את התאריך עם המספר הרנדומלי
+            return `${year}${month}${day}-${random}`;
+        }
+
+        // מעדכן את מספר ההזמנה בטעינת הדף
+        document.getElementById('order-number').textContent = generateOrderNumber();
+
         let currentStep = 1;
         let estimatedMinutes = 35;
         
@@ -105,7 +123,7 @@
                 if (currentStep > 4) {
                     document.getElementById("auto-update-status").innerText = "המשלוח הושלם!";
                     document.getElementById("auto-update-status").style.color = "#4CAF50";
-                    clearInterval(updateInterval); // מפסיק את העדכון האוטומטי
+                    clearInterval(updateInterval);
                 }
             }
         }
