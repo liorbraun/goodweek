@@ -214,3 +214,50 @@ button:hover {
 button:active {
     transform: scale(0.95);
 }
+
+/* הוספת סגנונות חדשים למעקב אוטומטי */
+.update-status {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.tracking-details {
+    margin-top: 30px;
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.estimated-time {
+    margin-bottom: 20px;
+}
+
+.estimated-time h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.estimated-time p {
+    margin: 5px 0;
+}
+
+#estimated-time {
+    font-size: 1.2em;
+    color: #0099cc;
+    font-weight: bold;
+}
+
+/* אנימציה לעדכון אוטומטי */
+@keyframes updating {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.updating {
+    animation: updating 2s infinite;
+}
+
