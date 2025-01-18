@@ -1,170 +1,216 @@
-/* Tracking Page Styles */
+/* Global styles */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+    padding-bottom: 60px; /* Space for fixed footer */
+}
+
+/* Header */
+header {
+    background-color: #0099cc;
+    color: white;
+    padding: 15px 0;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    padding: 10px;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px #000;
+}
+
+/* Responsive Navigation */
+nav {
+    background-color: #ff6600;
+    padding: 10px 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav ul li {
+    margin: 5px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    background: linear-gradient(to bottom, #ff6600, #ff9933);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+/* Main content area */
+section {
+    padding: 15px;
+    background-color: #ffffff;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    width: 90%;
+}
+
+/* Zodiac Grid */
+.zodiac-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.zodiac {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+/* Tracking Page */
 .tracking {
     max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
 }
 
-.tracking-container {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
 }
 
-.status-box {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #f8f9fa;
+/* Articles in Gossip Page */
+article {
+    background-color: #f2f2f2;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.status-box #status {
-    font-size: 1.5em;
-    color: #0099cc;
-    margin: 0;
-    font-weight: bold;
+/* Comments Form */
+form {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.order-number {
-    color: #666;
-    margin-top: 10px;
+input[type="text"], 
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.progress-bar {
-    position: relative;
-    margin: 40px 0;
-}
-
-.progress-steps {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-}
-
-.progress-line {
-    position: absolute;
-    top: 25px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #ddd;
-    z-index: 1;
-}
-
-.step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    flex: 1;
-}
-
-.step-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #fff;
-    border: 3px solid #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.step.completed .step-icon {
-    background: #4CAF50;
-    border-color: #4CAF50;
+/* Footer */
+footer {
+    background-color: #0099cc;
     color: white;
-}
-
-.step-label {
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     font-size: 0.9em;
-    color: #666;
-    text-align: center;
 }
 
-.tracking-details {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.estimated-time {
-    margin-bottom: 20px;
-}
-
-.estimated-time h3 {
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.update-button {
-    background: #0099cc;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
+/* Donation Button */
+.donation-button {
+    display: inline-block;
+    padding: 12px 24px;
     font-size: 1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    margin: 10px 0;
 }
 
-.update-button:hover {
-    background: #007ab3;
-    transform: translateY(-2px);
-}
-
-.update-button:disabled {
-    background: #4CAF50;
-    cursor: not-allowed;
-}
-
-/* Media Queries for Tracking Page */
+/* Media Queries */
 @media screen and (max-width: 768px) {
-    .tracking {
-        margin: 10px;
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    nav ul li a {
+        font-size: 0.8em;
+        padding: 6px 10px;
+    }
+    
+    .steps {
+        grid-template-columns: 1fr;
+    }
+    
+    section {
+        width: 95%;
         padding: 10px;
-    }
-
-    .progress-steps {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .progress-line {
-        width: 3px;
-        height: 100%;
-        right: auto;
-        left: 25px;
-        top: 0;
-    }
-
-    .step {
-        flex-direction: row;
-        width: 100%;
-        gap: 20px;
-    }
-
-    .step-label {
-        text-align: right;
-        margin-top: 0;
+        margin: 10px auto;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .status-box #status {
+    header h1 {
         font-size: 1.2em;
     }
-
-    .step-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1em;
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
     }
+    
+    nav ul li {
+        width: 80%;
+        margin: 2px 0;
+    }
+    
+    nav ul li a {
+        display: block;
+        text-align: center;
+    }
+    
+    .zodiac-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+/* Button Styles */
+button {
+    background: linear-gradient(to bottom, #ff6600, #ff9933);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #ff9933, #ff6600);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
 }
