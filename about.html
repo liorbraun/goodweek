@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות שבוע טוב</title>
+</head>
+<body>
+    <header>
+        <h1>אודות שבוע טוב</h1>
+    </header>
+
+    <section>
+        <h2>מתי הוקם שבוע טוב?</h2>
+        <p>שבוע טוב הוקם בתאריך: <span id="launch-date">1 בינואר 2023</span>.</p>
+        <p>שבוע טוב באוויר כבר <span class="timer" id="time-online">0 ימים</span>.</p>
+    </section>
+
+    <section>
+        <h2>מי אנחנו?</h2>
+        <p>שבוע טוב נוסד על ידי ליאור בראון, מתוך חזון להביא השראה ושמחה לתחילת כל שבוע.</p>
+    </section>
+
+    <section>
+        <h2>מה תוכלו למצוא אצלנו?</h2>
+        <ul>
+            <li>תכנים מעוררי השראה לשבוע מוצלח</li>
+            <li>ציטוטים ומסרים חיוביים</li>
+            <li>קהילה חמה ותומכת</li>
+        </ul>
+    </section>
+
+    <script>
+        // הגדרת תאריך ההשקה
+        const launchDate = new Date('2023-01-01T00:00:00');
+        
+        // פונקציה לחישוב זמן באוויר
+        function updateTimeOnline() {
+            const now = new Date();
+            const timeDiff = now - launchDate;
+            const daysOnline = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            document.getElementById('time-online').textContent = `${daysOnline} ימים`;
+        }
+
+        // עדכון טיימר מיד עם עליית הדף
+        updateTimeOnline();
+    </script>
+</body>
+</html>
