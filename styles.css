@@ -382,9 +382,6 @@ nav ul li a {
 }
 
 /* עיצוב דינאמי לסלולר עם כפתור */
-nav {
-    position: relative;
-}
 
 .toggle-menu {
     display: none;
