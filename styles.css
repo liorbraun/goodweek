@@ -369,7 +369,6 @@ nav ul {
     nav ul li a {
         font-size: 14px;
     }
-
 .carousel {
     position: relative;
     width: 100%;
@@ -381,36 +380,31 @@ nav ul {
 }
 
 .carousel-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+    position: relative;
     width: 100%;
 }
 
 .carousel-slide {
-    min-width: 100%;
-    flex: 0 0 100%; /* מונע מהסליידים להתכווץ או להתרחב */
-    background: white;
+    width: 100%;
+    display: none;
     padding: 20px;
     box-sizing: border-box;
-    text-align: center;
-    display: none; /* מסתיר את כל הסליידים כברירת מחדל */
+    background: white;
 }
 
 .carousel-slide.active {
-    display: block; /* מציג רק את הסלייד הפעיל */
+    display: block;
 }
 
 .carousel-controls {
     position: absolute;
     top: 50%;
-    width: 100%;
+    left: 0;
+    right: 0;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
-    box-sizing: border-box;
-    pointer-events: none;
-    z-index: 2;
+    padding: 0 20px;
 }
 
 .carousel-button {
@@ -421,7 +415,7 @@ nav ul {
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
-    pointer-events: auto;
+    z-index: 2;
 }
 
 .carousel-button:hover {
@@ -430,18 +424,37 @@ nav ul {
 
 .carousel-indicators {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: center;
     gap: 10px;
-    z-index: 2;
 }
 
-
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
 .indicator.active {
-    background: #fff;
+    background: white;
 }
-            
+
+.ad-content {
+    padding: 20px;
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ad-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}     
