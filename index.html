@@ -80,6 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicatorsContainer = document.querySelector('.carousel-indicators');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
+
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const nav = document.querySelector('nav ul');
+
+    navToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
     
     // יצירת האינדיקטורים
     slides.forEach((_, index) => {
@@ -125,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     slides[0].classList.add('active');
     updateCarousel();
 });
+
+        
     </script>
 </body>
 </html>
