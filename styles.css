@@ -280,14 +280,11 @@ button:active {
             border-radius: 10px;
         }
 
-
-
-
 /* Carousel container */
 .carousel {
     position: relative;
     width: 100%;
-    max-width: 1000px; /* ניתן לשנות לפי הצורך */
+    max-width: 1000px;
     margin: 20px auto;
     overflow: hidden;
 }
@@ -300,7 +297,7 @@ button:active {
 
 /* Carousel slide */
 .carousel-slide {
-    min-width: 100%;
+    min-width: 100%; /* כל שקף תופס 100% מהמרווח */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
