@@ -1,4 +1,4 @@
-/* === Reset & Global Styles === */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -11,10 +11,10 @@ body {
     color: #333;
     text-align: center;
     padding-bottom: 60px;
-    line-height: 1.6;
+    direction: rtl;
 }
 
-/* === Header Styles === */
+/* Header styles */
 header {
     background-color: #0099cc;
     color: white;
@@ -30,7 +30,7 @@ header h1 {
     text-shadow: 2px 2px 3px #000;
 }
 
-/* === Navigation Styles === */
+/* Navigation styles */
 nav {
     background-color: #ff6600;
     padding: 10px 0;
@@ -46,9 +46,6 @@ nav ul {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-    max-height: 1000px;
 }
 
 nav ul li {
@@ -70,11 +67,11 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    transform: translateY(-2px);
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to bottom, #ff9933, #ff6600);
+    transform: scale(1.05);
 }
 
-/* === Main Content Styles === */
+/* Section styles */
 section {
     padding: 15px;
     background-color: #ffffff;
@@ -85,7 +82,7 @@ section {
     width: 90%;
 }
 
-/* === Carousel Styles === */
+/* Carousel styles */
 .carousel {
     position: relative;
     width: 100%;
@@ -97,16 +94,19 @@ section {
 }
 
 .carousel-container {
-    position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
     width: 100%;
 }
 
 .carousel-slide {
-    width: 100%;
-    display: none;
+    min-width: 100%;
+    flex: 0 0 100%;
+    background: white;
     padding: 20px;
     box-sizing: border-box;
-    background: white;
+    text-align: center;
+    display: none;
 }
 
 .carousel-slide.active {
@@ -116,35 +116,19 @@ section {
 .carousel-controls {
     position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
+    width: 100%;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
     pointer-events: none;
-}
-
-.carousel-button {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 18px;
-    pointer-events: auto;
     z-index: 2;
-    transition: background-color 0.3s;
-}
-
-.carousel-button:hover {
-    background: rgba(0, 0, 0, 0.7);
 }
 
 .carousel-indicators {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 0;
     right: 0;
     display: flex;
@@ -154,25 +138,24 @@ section {
 }
 
 .indicator {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: #ccc;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .indicator.active {
-    background: white;
+    background: #ff6600;
 }
 
-/* === Advertisement Content Styles === */
+/* Advertisement styles */
 .ad-content {
     padding: 20px;
     background: linear-gradient(45deg, #f8f9fa, #e9ecef);
     border-radius: 8px;
     margin: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .ad-title {
@@ -186,37 +169,7 @@ section {
     line-height: 1.5;
 }
 
-.ad-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-/* === Form Styles === */
-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-input[type="text"], 
-textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1em;
-}
-
-/* === Comment Section Styles === */
-.comment-box {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #e0f7fa;
-    border-radius: 10px;
-}
-
+/* Comments styles */
 .comment-list {
     margin-top: 20px;
     padding: 10px;
@@ -225,34 +178,20 @@ textarea {
 
 .comment {
     margin-bottom: 15px;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
 }
 
-/* === Tracking Section Styles === */
-.tracking {
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.tracking-details {
-    margin-top: 30px;
-    text-align: center;
-    padding: 15px;
-    background: #f8f9fa;
+.comment-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e0f7fa;
     border-radius: 10px;
 }
 
-.update-status {
-    color: #666;
-    font-size: 0.9em;
-    margin-top: 15px;
-    font-style: italic;
-}
-
-/* === Footer Styles === */
+/* Footer styles */
 footer {
     background-color: #0099cc;
     color: white;
@@ -261,46 +200,9 @@ footer {
     bottom: 0;
     width: 100%;
     font-size: 0.9em;
-    z-index: 100;
 }
 
-/* === Button Styles === */
-button {
-    background: linear-gradient(to bottom, #ff6600, #ff9933);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
-}
-
-button:hover {
-    background: linear-gradient(to bottom, #ff9933, #ff6600);
-    transform: scale(1.05);
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-/* === Mobile Menu Toggle === */
-.toggle-menu {
-    display: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-/* === Responsive Design === */
+/* Responsive styles */
 @media screen and (max-width: 768px) {
     header h1 {
         font-size: 1.5em;
@@ -311,27 +213,21 @@ button:active {
         padding: 6px 10px;
     }
     
-    section {
-        width: 95%;
-        padding: 10px;
-    }
-    
     .toggle-menu {
         display: block;
     }
-
+    
     nav ul {
         max-height: 0;
         display: block;
     }
-
+    
     nav ul.open {
         max-height: 500px;
     }
-
-    .carousel-button {
-        padding: 8px 12px;
-        font-size: 16px;
+    
+    nav ul li {
+        margin: 10px 0;
     }
 }
 
@@ -355,22 +251,9 @@ button:active {
         text-align: center;
     }
     
-    .carousel-controls {
-        padding: 0 10px;
+    section {
+        width: 95%;
+        padding: 10px;
+        margin: 10px auto;
     }
-    
-    .ad-content {
-        padding: 15px;
-    }
-}
-
-/* === Animations === */
-@keyframes updating {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-.updating {
-    animation: updating 2s infinite;
 }
