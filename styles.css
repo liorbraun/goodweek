@@ -364,7 +364,26 @@ button:active {
         .ad-description {
             color: #666;
             line-height: 1.5;
-        }
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+/* עיצוב דינאמי לסלולר עם כפתור */
+nav {
+    position: relative;
+}
 
 .toggle-menu {
     display: none;
