@@ -79,14 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
 
-    const navToggle = document.querySelector('.mobile-nav-toggle');
-    const nav = document.querySelector('nav ul');
-
-    navToggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-    });
-    
-    // יצירת האינדיקטורים
+    // יצירת אינדיקטורים (נקודות קטנות) לכל שקף
     slides.forEach((_, index) => {
         const indicator = document.createElement('div');
         indicator.classList.add('indicator');
@@ -95,13 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateCarousel() {
+        // עדכון השקפים כדי להציג את השקף הנוכחי
         slides.forEach((slide, index) => {
             slide.classList.toggle('active', index === currentSlide);
         });
-        
+
+        // עדכון האינדיקטורים
         document.querySelectorAll('.indicator').forEach((indicator, index) => {
             indicator.classList.toggle('active', index === currentSlide);
         });
+
+        // עדכון מיקום של הקונטיינר
+        const offset = -currentSlide * 100; // כל שקף תופס 100% מהאורך של הקונטיינר
+        document.querySelector('.carousel-container').style.transform = `translateX(${offset}%)`;
     }
 
     function moveSlide(direction) {
@@ -114,20 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     }
 
-    // הוספת מאזיני לחיצות
+    // הוספת אירועים לכפתורים
     prevButton.addEventListener('click', () => moveSlide(-1));
     nextButton.addEventListener('click', () => moveSlide(1));
 
-    // החלפה אוטומטית של סליידים
+    // החלפה אוטומטית של השקפים
     const autoPlayInterval = setInterval(() => moveSlide(1), 5000);
 
-    // עצירת החלפה אוטומטית בעת מעבר עכבר
+    // עצירת החלפה אוטומטית בעת מעבר עם העכבר
     document.querySelector('.carousel').addEventListener('mouseenter', () => {
         clearInterval(autoPlayInterval);
     });
 
-    // הפעלת הסלייד הראשון
-    slides[0].classList.add('active');
+    // הפעלת השקף הראשון
     updateCarousel();
 });
 
