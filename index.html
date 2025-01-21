@@ -76,24 +76,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     const indicatorsContainer = document.querySelector('.carousel-indicators');
-
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    
     // יצירת האינדיקטורים
     slides.forEach((_, index) => {
         const indicator = document.createElement('div');
         indicator.classList.add('indicator');
-        indicator.onclick = () => goToSlide(index);
+        indicator.addEventListener('click', () => goToSlide(index));
         indicatorsContainer.appendChild(indicator);
     });
 
-    function updateIndicators() {
-        document.querySelectorAll('.indicator').forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentSlide);
-        });
-    }
-
-    function updateSlides() {
+    function updateCarousel() {
         slides.forEach((slide, index) => {
             slide.classList.toggle('active', index === currentSlide);
+        });
+        
+        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
         });
     }
 
@@ -107,24 +107,22 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     }
 
-    function updateCarousel() {
-        updateIndicators();
-        updateSlides();
-    }
-
-    // הוספת מאזיני לחיצה לכפתורים
-    document.querySelectorAll('.carousel-button').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const direction = e.target.textContent === '❮' ? -1 : 1;
-            moveSlide(direction);
-        });
-    });
+    // הוספת מאזיני לחיצות
+    prevButton.addEventListener('click', () => moveSlide(-1));
+    nextButton.addEventListener('click', () => moveSlide(1));
 
     // החלפה אוטומטית של סליידים
-    setInterval(() => moveSlide(1), 5000);
+    const autoPlayInterval = setInterval(() => moveSlide(1), 5000);
 
-    // אתחול ראשוני
+    // עצירת החלפה אוטומטית בעת מעבר עכבר
+    document.querySelector('.carousel').addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+    });
+
+    // הפעלת הסלייד הראשון
+    slides[0].classList.add('active');
     updateCarousel();
+});
     </script>
 </body>
 </html>
