@@ -30,6 +30,7 @@ nav {
     background-color: #ff6600;
     padding: 10px 0;
     width: 100%;
+    position: relative;
 }
 
 nav ul {
