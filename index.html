@@ -102,9 +102,11 @@
         }
 
         function updateCarousel() {
-            container.style.transform = `translateX(${currentSlide * 100}%)`;
+            const slideWidth = container.clientWidth;
+            container.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
             updateIndicators();
-        }
+            }
+
 
         // Auto-advance slides
         setInterval(() => moveSlide(1), 5000);
