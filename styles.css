@@ -376,3 +376,64 @@ button:active {
     background-color: #0099cc;
 }
 
+
+
+/* תחזית השבוע */
+.forecast {
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%;
+}
+
+/* פריטים בתוך התחזית */
+.forecast-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* כותרת של כל יום */
+.forecast-item h3 {
+    font-size: 1.5em;
+    color: #0099cc;
+    margin-bottom: 10px;
+}
+
+/* תיאור יום */
+.forecast-item p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* תמונות לכל יום */
+.forecast-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* השראה בסוף */
+.inspiration {
+    font-style: italic;
+    font-size: 1.2em;
+    color: #0099cc;
+    margin-top: 30px;
+}
+
+/* כותרת תחתונה */
+footer {
+    background-color: #0099cc;
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
