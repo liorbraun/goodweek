@@ -280,74 +280,34 @@ button:active {
             border-radius: 10px;
         }
 
-/* Carousel container */
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 20px auto;
-    overflow: hidden;
-}
-
-/* Carousel container for the slides */
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
 /* Carousel slide */
 .carousel-slide {
     min-width: 100%; /* כל שקף תופס 100% מהמרווח */
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Ad content inside the carousel slide */
 .ad-content {
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* רקע בהיר כדי להדגיש את המלל */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* הוספת צל למלל */
 }
 
-/* Carousel buttons */
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 2em;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+/* Title and description inside the ad content */
+.ad-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
 }
 
-.carousel-button.prev {
-    left: 10px;
-}
-
-.carousel-button.next {
-    right: 10px;
-}
-
-/* Carousel indicators (dots) */
-.carousel-indicators {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 5px;
-}
-
-.carousel-indicators .indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-}
-
-.carousel-indicators .indicator.active {
-    background-color: #0099cc;
+.ad-description {
+    font-size: 1.2em;
+    color: #666;
 }
