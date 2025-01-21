@@ -439,13 +439,7 @@ nav ul {
     z-index: 2;
 }
 
-.indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-}
+
 
 .indicator.active {
     background: #fff;
