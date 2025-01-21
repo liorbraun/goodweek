@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הורוסקופ יומי</title>
+    <title>הורוסקופ משעשע</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         function showHoroscope(sign) {
             const horoscopes = {
-                "חתול": "היום הוא יום מצוין להתחיל פרויקטים חדשים ולהעז!",
-                "ארנב": "מומלץ להתמקד ביציבות פיננסית וקשרים אישיים.",
-                "תאומים": "תקשורת עם אחרים תהיה קלה וזורמת היום.",
-                "סרטן": "זה זמן לחשוב על המשפחה והבית.",
-                "אריה": "היום מתאים להראות את הביטחון העצמי שלך.",
-                "בתולה": "שימו לב לפרטים הקטנים במשימות שלכם.",
-                "מאזניים": "איזון הוא המפתח להצלחה היום.",
-                "עקרב": "העמקה בנושאים אישיים תוביל לתובנות חדשות.",
-                "קשת": "זה יום מלא בהרפתקאות ואפשרויות חדשות.",
-                "גדי": "מומלץ להתמקד בקריירה ובמטרות לטווח ארוך.",
-                "דלי": "חדשנות ורעיונות יצירתיים יובילו אותך היום.",
-                "דגים": "הקשיבו לאינטואיציה שלכם וקחו זמן למנוחה."
+                "חתול": "השבוע תגלו שהספה החדשה שלכם נוחה במיוחד לשריטות! זמן מצוין לישון 20 שעות ביום ולהתעלם מכל מה שקורה סביבכם. יום המזל שלכם: כל יום שבו יש אוכל בקערה.",
+                "ארנב": "השבוע תמצאו גזר זהב! זה סימן טוב, אבל לא לאכול אותו מיד. המתינו עד שתהיו בטוחים שאף אחד לא מסתכל. מספר המזל: כמה שיותר גזרים.",
+                "מדונה": "כוכב הפופ מחייך אליכם! זה הזמן המושלם להופיע במקלחת עם מברשת שיער במקום מיקרופון. הלהיט הבא שלכם: שיר על איך השכנים דופקים בקיר.",
+                "סרטן": "הולכים אחורה כדי להתקדם קדימה! השבוע תגלו שלפעמים ללכת בכיוון ההפוך זו בדיוק הדרך הנכונה. יום המזל: כשהים שקט והחול חם.",
+                "אריה": "זמן מצוין לשאוג על דברים קטנים! למה ללחוש כשאפשר לצעוק? השבוע כל מה שתגידו יישמע חשוב, אפילו אם זה 'איפה השלט?'",
+                "בתולה": "השבוע תגלו שהבלגן הוא בעצם סדר במהדורה מוגבלת! נסו להסביר את זה למי שמנסה לסדר לכם את החדר.",
+                "מאזניים": "הכוכבים ממליצים לאזן בין שוקולד לגלידה השבוע. למה לבחור כשאפשר גם וגם? יום המזל: כל יום שנגמר באות 'י'.",
+                "עקרב": "השבוע אתם במצב רוח עוקצני במיוחד! זה זמן מצוין להעיר הערות שנונות ולברוח מהר לפני שמישהו מבין אותן.",
+                "קשת": "הקשת שלכם קצת עקומה השבוע, אבל זה בסדר - גם החיוך שלכם! המשיכו לכוון גבוה, אפילו אם אתם מפספסים את המטרה ב-3 קילומטר.",
+                "גדי": "תהיו קצת פחות רציניים! השבוע מותר לכם לקפוץ כמו גדי קטן ולצחוק על בדיחות גרועות. מספר המזל: כמה שיותר צחוקים.",
+                "מערבל בטון": "השבוע אתם בסחרור מתמיד! ממשיכים להסתובב במעגלים ומערבבים הכל - רעיונות, תוכניות, ואולי גם קצת בטון.",
+                "דגים": "השבוע תשחו נגד הזרם, בעיקר כי שכחתם איפה הזרם נמצא! לא נורא, לפעמים להיות אבוד זה הדרך הכי טובה למצוא משהו מעניין."
             };
 
-            const message = horoscopes[sign] || "אין מידע על המזל שבחרת.";
+            const message = horoscopes[sign] || "אין מידע על המזל המצחיק שבחרת.";
             alert(`${sign}: ${message}`);
         }
     </script>
-
-    
 </head>
 <body>
     <header>
-        <h1>הורוסקופ יומי</h1>
+        <h1>הורוסקופ לא רציני בעליל</h1>
         <nav>
             <ul>
                 <li><a href="index.html">דף הבית</a></li>
@@ -41,32 +39,32 @@
                 <li><a href="gossip.html">רכילות</a></li>
                 <li><a href="tracking.html">מעקב השבוע</a></li>
                 <li><a href="buymeacoffee.html">כוס קפה</a></li>
-                <li><a href="about.html">אודות האתר </a></li>
+                <li><a href="about.html">אודות האתר</a></li>
             </ul>
         </nav>        
     </header>
 
     <section class="horoscope">
-        <h2>הורוסקופ לכל מזל</h2>
-    <p>בחרו את המזל שלכם כדי לגלות מה צפוי לכם היום:</p>
-    <div class="zodiac-container">
-        <div class="zodiac" onclick="showHoroscope('חתול')">חתול</div>
-        <div class="zodiac" onclick="showHoroscope('ארנב')">ארנב</div>
-        <div class="zodiac" onclick="showHoroscope('תאומים')">מדונה</div>
-        <div class="zodiac" onclick="showHoroscope('סרטן')">סרטן</div>
-        <div class="zodiac" onclick="showHoroscope('אריה')">אריה</div>
-        <div class="zodiac" onclick="showHoroscope('בתולה')">בתולה</div>
-        <div class="zodiac" onclick="showHoroscope('מאזניים')">מאזניים</div>
-        <div class="zodiac" onclick="showHoroscope('עקרב')">עקרב</div>
-        <div class="zodiac" onclick="showHoroscope('קשת')">קשת</div>
-        <div class="zodiac" onclick="showHoroscope('גדי')">גדי</div>
-        <div class="zodiac" onclick="showHoroscope('דלי')">מערבל בטון</div>
-        <div class="zodiac" onclick="showHoroscope('דגים')">דגים</div>
-    </div> </ul>
+        <h2>הורוסקופ שבועי - בחרו את המזל המצחיק שלכם</h2>
+        <p>לחצו על המזל שלכם לגילוי תחזית שממש לא צריך להתייחס אליה ברצינות:</p>
+        <div class="zodiac-container">
+            <div class="zodiac" onclick="showHoroscope('חתול')">חתול 🐱</div>
+            <div class="zodiac" onclick="showHoroscope('ארנב')">ארנב 🐰</div>
+            <div class="zodiac" onclick="showHoroscope('מדונה')">מדונה 🎤</div>
+            <div class="zodiac" onclick="showHoroscope('סרטן')">סרטן 🦀</div>
+            <div class="zodiac" onclick="showHoroscope('אריה')">אריה 🦁</div>
+            <div class="zodiac" onclick="showHoroscope('בתולה')">בתולה 👸</div>
+            <div class="zodiac" onclick="showHoroscope('מאזניים')">מאזניים ⚖️</div>
+            <div class="zodiac" onclick="showHoroscope('עקרב')">עקרב 🦂</div>
+            <div class="zodiac" onclick="showHoroscope('קשת')">קשת 🏹</div>
+            <div class="zodiac" onclick="showHoroscope('גדי')">גדי 🐐</div>
+            <div class="zodiac" onclick="showHoroscope('מערבל בטון')">מערבל בטון 🌀</div>
+            <div class="zodiac" onclick="showHoroscope('דגים')">דגים 🐟</div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 כל הזכויות שמורות</p>
+        <p>&copy; 2025 כל הזכויות שמורות (וגם הצחוקים)</p>
     </footer>
 </body>
 </html>
