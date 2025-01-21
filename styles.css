@@ -279,3 +279,78 @@ button:active {
             background-color: #e0f7fa;
             border-radius: 10px;
         }
+
+
+
+
+/* Carousel container */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px; /* ניתן לשנות לפי הצורך */
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+/* Carousel container for the slides */
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Carousel slide */
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ad content inside the carousel slide */
+.ad-content {
+    text-align: center;
+}
+
+/* Carousel buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2em;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Carousel indicators (dots) */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.carousel-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.carousel-indicators .indicator.active {
+    background-color: #0099cc;
+}
