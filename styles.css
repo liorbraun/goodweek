@@ -1,15 +1,20 @@
-/* Global styles */
+/* === Reset & Global Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #f5f5f5;
     font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
     color: #333;
     text-align: center;
-    padding-bottom: 60px; /* Space for fixed footer */
+    padding-bottom: 60px;
+    line-height: 1.6;
 }
 
-/* Header */
+/* === Header Styles === */
 header {
     background-color: #0099cc;
     color: white;
@@ -25,7 +30,7 @@ header h1 {
     text-shadow: 2px 2px 3px #000;
 }
 
-/* Responsive Navigation */
+/* === Navigation Styles === */
 nav {
     background-color: #ff6600;
     padding: 10px 0;
@@ -41,6 +46,9 @@ nav ul {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    max-height: 1000px;
 }
 
 nav ul li {
@@ -61,7 +69,12 @@ nav ul li a {
     font-size: 0.9em;
 }
 
-/* Main content area */
+nav ul li a:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* === Main Content Styles === */
 section {
     padding: 15px;
     background-color: #ffffff;
@@ -72,303 +85,7 @@ section {
     width: 90%;
 }
 
-/* Zodiac Grid */
-.zodiac-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-    padding: 15px;
-}
-
-.zodiac {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-/* Tracking Page */
-.tracking {
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin: 20px 0;
-}
-
-/* Articles in Gossip Page */
-article {
-    background-color: #f2f2f2;
-    border: 1px solid #cccccc;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Comments Form */
-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-input[type="text"], 
-textarea {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Footer */
-footer {
-    background-color: #0099cc;
-    color: white;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 0.9em;
-}
-
-/* Donation Button */
-.donation-button {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 1em;
-    margin: 10px 0;
-}
-
-/* Media Queries */
-@media screen and (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-    
-    nav ul li a {
-        font-size: 0.8em;
-        padding: 6px 10px;
-    }
-    
-    .steps {
-        grid-template-columns: 1fr;
-    }
-    
-    section {
-        width: 95%;
-        padding: 10px;
-        margin: 10px auto;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    header h1 {
-        font-size: 1.2em;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav ul li {
-        width: 80%;
-        margin: 2px 0;
-    }
-    
-    nav ul li a {
-        display: block;
-        text-align: center;
-    }
-    
-    .zodiac-container {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-}
-
-/* Button Styles */
-button {
-    background: linear-gradient(to bottom, #ff6600, #ff9933);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
-}
-
-button:hover {
-    background: linear-gradient(to bottom, #ff9933, #ff6600);
-    transform: scale(1.05);
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-/* הוספת סגנונות חדשים למעקב אוטומטי */
-.update-status {
-    color: #666;
-    font-size: 0.9em;
-    margin-top: 15px;
-    font-style: italic;
-}
-
-.tracking-details {
-    margin-top: 30px;
-    text-align: center;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-}
-
-.estimated-time {
-    margin-bottom: 20px;
-}
-
-.estimated-time h3 {
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.estimated-time p {
-    margin: 5px 0;
-}
-
-#estimated-time {
-    font-size: 1.2em;
-    color: #0099cc;
-    font-weight: bold;
-}
-
-/* אנימציה לעדכון אוטומטי */
-@keyframes updating {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-.updating {
-    animation: updating 2s infinite;
-}
-
-.comment-list {
-            margin-top: 20px;
-            padding: 10px;
-            border-top: 1px solid #ccc;
-        }
-.comment {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-.comment-box {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #e0f7fa;
-            border-radius: 10px;
-        }
-
-        /* Global styles */
-    .indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ccc;
-            cursor: pointer;
-        }
-
-     .indicator.active {
-            background: #ff6600;
-        }
-
-        .ad-content {
-            padding: 20px;
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            border-radius: 8px;
-            margin: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-     .ad-title {
-            color: #ff6600;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        .ad-description {
-            color: #666;
-            line-height: 1.5;
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: black;
-}
-
-/* עיצוב דינאמי לסלולר עם כפתור */
-
-.toggle-menu {
-    display: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-nav ul {
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-    max-height: 1000px; /* ברירת מחדל */
-}
-
-@media (max-width: 768px) {
-    .toggle-menu {
-        display: block;
-    }
-
-    nav ul {
-        max-height: 0;
-        display: block;
-    }
-
-    nav ul.open {
-        max-height: 500px; /* גובה מותאם לתפריט */
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
+/* === Carousel Styles === */
 .carousel {
     position: relative;
     width: 100%;
@@ -405,6 +122,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+    pointer-events: none;
 }
 
 .carousel-button {
@@ -415,7 +133,9 @@ nav ul {
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
+    pointer-events: auto;
     z-index: 2;
+    transition: background-color 0.3s;
 }
 
 .carousel-button:hover {
@@ -430,6 +150,7 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 10px;
+    z-index: 2;
 }
 
 .indicator {
@@ -445,16 +166,211 @@ nav ul {
     background: white;
 }
 
+/* === Advertisement Content Styles === */
 .ad-content {
     padding: 20px;
     background: linear-gradient(45deg, #f8f9fa, #e9ecef);
     border-radius: 8px;
     margin: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ad-title {
+    color: #ff6600;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.ad-description {
+    color: #666;
+    line-height: 1.5;
 }
 
 .ad-content img {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
-}     
+    margin-top: 10px;
+}
+
+/* === Form Styles === */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input[type="text"], 
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* === Comment Section Styles === */
+.comment-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+}
+
+.comment-list {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* === Tracking Section Styles === */
+.tracking {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.tracking-details {
+    margin-top: 30px;
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.update-status {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* === Footer Styles === */
+footer {
+    background-color: #0099cc;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+    z-index: 100;
+}
+
+/* === Button Styles === */
+button {
+    background: linear-gradient(to bottom, #ff6600, #ff9933);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #ff9933, #ff6600);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* === Mobile Menu Toggle === */
+.toggle-menu {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* === Responsive Design === */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    nav ul li a {
+        font-size: 0.8em;
+        padding: 6px 10px;
+    }
+    
+    section {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .toggle-menu {
+        display: block;
+    }
+
+    nav ul {
+        max-height: 0;
+        display: block;
+    }
+
+    nav ul.open {
+        max-height: 500px;
+    }
+
+    .carousel-button {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        width: 80%;
+        margin: 2px 0;
+    }
+    
+    nav ul li a {
+        display: block;
+        text-align: center;
+    }
+    
+    .carousel-controls {
+        padding: 0 10px;
+    }
+    
+    .ad-content {
+        padding: 15px;
+    }
+}
+
+/* === Animations === */
+@keyframes updating {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.updating {
+    animation: updating 2s infinite;
+}
