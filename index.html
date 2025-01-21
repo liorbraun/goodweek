@@ -27,7 +27,7 @@
        <section class="landing-page">
         <h2>התחילו את השבוע שלכם כאן</h2>
         <p>ברוכים הבאים לאתר שבוע טוב. כאן תוכלו לקרוא על תחזיות, הורוסקופים, מגמות ועוד.</p>
-        
+           
 <div class="carousel">
     <div class="carousel-container">
         <div class="carousel-slide">
@@ -65,6 +65,8 @@
     </div>
     <div class="carousel-indicators"></div>
 </div>
+
+
     </section>
 
     <footer>
@@ -73,54 +75,54 @@
 
     <script>
 document.addEventListener('DOMContentLoaded', () => {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicatorsContainer = document.querySelector('.carousel-indicators');
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
+    let currentSlide = 0; // שומר את המיקום הנוכחי של השקף
+    const slides = document.querySelectorAll('.carousel-slide'); // אוספים את כל השקפים
+    const indicatorsContainer = document.querySelector('.carousel-indicators'); // מיכל לאינדיקטורים
+    const prevButton = document.querySelector('.carousel-button.prev'); // כפתור הקודם
+    const nextButton = document.querySelector('.carousel-button.next'); // כפתור הבא
 
     // יצירת אינדיקטורים (נקודות קטנות) לכל שקף
     slides.forEach((_, index) => {
         const indicator = document.createElement('div');
         indicator.classList.add('indicator');
-        indicator.addEventListener('click', () => goToSlide(index));
+        indicator.addEventListener('click', () => goToSlide(index)); // הוספת לחיצה על אינדיקטור
         indicatorsContainer.appendChild(indicator);
     });
 
     function updateCarousel() {
-        // עדכון השקפים כדי להציג את השקף הנוכחי
+        // עדכון השקפים כך שהשקף הנוכחי יופיע
         slides.forEach((slide, index) => {
             slide.classList.toggle('active', index === currentSlide);
         });
 
-        // עדכון האינדיקטורים
+        // עדכון האינדיקטורים כך שהאינדיקטור המתאים יהיה פעיל
         document.querySelectorAll('.indicator').forEach((indicator, index) => {
             indicator.classList.toggle('active', index === currentSlide);
         });
 
-        // עדכון מיקום של הקונטיינר
-        const offset = -currentSlide * 100; // כל שקף תופס 100% מהאורך של הקונטיינר
+        // עדכון מיקום הקונטיינר כך שהשקף הנכון יוצג
+        const offset = -currentSlide * 100; // כל שקף תופס 100% מהקונטיינר
         document.querySelector('.carousel-container').style.transform = `translateX(${offset}%)`;
     }
 
     function moveSlide(direction) {
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        updateCarousel();
+        currentSlide = (currentSlide + direction + slides.length) % slides.length; // מחשב את המיקום החדש של השקף
+        updateCarousel(); // מעדכן את הצגת השקף
     }
 
     function goToSlide(index) {
-        currentSlide = index;
-        updateCarousel();
+        currentSlide = index; // מקבע את המיקום לשקף הנבחר
+        updateCarousel(); // מעדכן את הצגת השקף
     }
 
-    // הוספת אירועים לכפתורים
-    prevButton.addEventListener('click', () => moveSlide(-1));
-    nextButton.addEventListener('click', () => moveSlide(1));
+    // הוספת מאזיני לחיצות על הכפתורים
+    prevButton.addEventListener('click', () => moveSlide(-1)); // כפתור קודם
+    nextButton.addEventListener('click', () => moveSlide(1)); // כפתור הבא
 
-    // החלפה אוטומטית של השקפים
+    // החלפה אוטומטית של השקפים כל 5 שניות
     const autoPlayInterval = setInterval(() => moveSlide(1), 5000);
 
-    // עצירת החלפה אוטומטית בעת מעבר עם העכבר
+    // עצירת ההחלפה האוטומטית בעת מעבר עכבר על הקלרוסלה
     document.querySelector('.carousel').addEventListener('mouseenter', () => {
         clearInterval(autoPlayInterval);
     });
