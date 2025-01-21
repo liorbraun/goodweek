@@ -370,7 +370,7 @@ nav ul {
         font-size: 14px;
     }
 
-    .carousel {
+.carousel {
     position: relative;
     width: 100%;
     max-width: 800px;
@@ -388,11 +388,16 @@ nav ul {
 
 .carousel-slide {
     min-width: 100%;
-    flex-shrink: 0;
+    flex: 0 0 100%; /* מונע מהסליידים להתכווץ או להתרחב */
     background: white;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
+    display: none; /* מסתיר את כל הסליידים כברירת מחדל */
+}
+
+.carousel-slide.active {
+    display: block; /* מציג רק את הסלייד הפעיל */
 }
 
 .carousel-controls {
@@ -405,6 +410,7 @@ nav ul {
     padding: 0 10px;
     box-sizing: border-box;
     pointer-events: none;
+    z-index: 2;
 }
 
 .carousel-button {
@@ -416,12 +422,32 @@ nav ul {
     border-radius: 5px;
     font-size: 18px;
     pointer-events: auto;
-    z-index: 2;
 }
 
 .carousel-button:hover {
     background: rgba(0, 0, 0, 0.7);
 }
 
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 2;
+}
 
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.indicator.active {
+    background: #fff;
+}
             
