@@ -437,3 +437,44 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
+        .headline {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .headline img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .headline h2 {
+            margin-top: 10px;
+            font-size: 24px;
+            color: #4caf50;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            padding: 15px 0;
+        }
+        .carousel .ad {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .carousel .ad img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
