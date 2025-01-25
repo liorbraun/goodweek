@@ -86,7 +86,7 @@
                 </div>
                 <div class="form-group">
                     <label for="alternatePhone">טלפון חלופי</label>
-                    <input type="tel" id="alternatePhone">
+                    <input type="tel" id="alternatePhone" required>
                 </div>
             </fieldset>
 
@@ -107,7 +107,7 @@
                 </div>
                 <div class="form-group">
                     <label for="zipCode">מיקוד</label>
-                    <input type="text" id="zipCode">
+                    <input type="text" id="zipCode" required>
                 </div>
             </fieldset>
 
@@ -116,11 +116,11 @@
                 <legend>פרטי תעסוקה</legend>
                 <div class="form-group">
                     <label for="profession">מקצוע</label>
-                    <input type="text" id="profession">
+                    <input type="text" id="profession" required>
                 </div>
                 <div class="form-group">
                     <label for="workplace">מקום עבודה</label>
-                    <input type="text" id="workplace">
+                    <input type="text" id="workplace" required>
                 </div>
                 <div class="form-group">
                     <label for="income">טווח הכנסה חודשית</label>
@@ -143,8 +143,12 @@
                         <input type="checkbox" id="hobby1" name="hobbies" value="reading">
                         <label for="hobby1">קריאה</label>
                         <input type="checkbox" id="hobby2" name="hobbies" value="sports">
-                        <label for="hobby2">ספורט</label>
+                        <label for="hobby2">ספורט רטוב</label>
                         <input type="checkbox" id="hobby3" name="hobbies" value="travel">
+                        <label for="hobby3">טיולים בעיר</label>
+                        <input type="checkbox" id="hobby4" name="hobbies" value="travel">
+                        <label for="hobby3"> שירה עם בגדים במקלחת</label>
+                        <input type="checkbox" id="hobby5" name="hobbies" value="travel">
                         <label for="hobby3">טיולים</label>
                         <!-- עוד תחומי עניין -->
                     </div>
@@ -152,6 +156,7 @@
                 <div class="form-group">
                     <label for="newsletter"> הרשמה לניוז letter</label>
                     <select id="newsletter">
+                        <option value="dayly">יומי</option>
                         <option value="weekly">שבועי</option>
                         <option value="monthly">חודשי</option>
                         <option value="none">לא מעוניין/ת</option>
