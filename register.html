@@ -3,51 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הרשמה לשבוע טוב</title>
+    <title>הרשמה מלאה לשבוע טוב</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function validateForm(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-
-            // Basic validation
-            if (!name || !email || !phone || !password || !confirmPassword) {
-                alert('אנא מלא את כל השדות');
-                return false;
-            }
-
-            if (password !== confirmPassword) {
-                alert('הסיסמאות אינן תואמות');
-                return false;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('אנא הזן כתובת אימייל תקינה');
-                return false;
-            }
-
-            // Phone validation (Israeli phone number format)
-            const phoneRegex = /^(0[2-9]\d{8}|05\d{8})$/;
-            if (!phoneRegex.test(phone)) {
-                alert('אנא הזן מספר טלפון תקין');
-                return false;
-            }
-
-            // If all validations pass
-            alert('ההרשמה בוצעה בהצלחה! ברוכים הבאים לשבוע טוב!');
-            event.target.reset();
-        }
-    </script>
 </head>
 <body>
     <header>
-        <h1>הרשמה לשבוע טוב</h1>
+        <h1>טופס הרשמה מקיף</h1>
         <nav>
             <ul>
                 <li><a href="index.html">דף הבית</a></li>
@@ -58,50 +19,174 @@
                 <li><a href="tracking.html">מעקב השבוע</a></li>
                 <li><a href="buymeacoffee.html">כוס קפה</a></li>
                 <li><a href="about.html">אודות האתר</a></li>
-                <li><a href="register.html">הרשמה</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="register-section">
-        <h2>הירשם לשבוע טוב</h2>
-        <h3> כאן אתם יכולים להירשם לשירות השבוע טוב מספר פרטים קטנים ואתם שם </h3>
-        <form id="registration-form" onsubmit="validateForm(event)">
-            <div class="form-group">
-                <label for="name">שם מלא:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+    <section class="registration">
+        <h2>טופס הרשמה מפורט</h2>
+        <form id="extensiveRegistrationForm">
+            <!-- פרטים אישיים -->
+            <fieldset>
+                <legend>פרטים אישיים</legend>
+                <div class="form-group">
+                    <label for="firstName">שם פרטי*</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">שם משפחה*</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">תאריך לידה*</label>
+                    <input type="date" id="birthDate" required>
+                </div>
+                <div class="form-group">
+                    <label>מין*</label>
+                    <select id="gender" required>
+                        <option value="">בחר/י</option>
+                        <option value="male">זכר</option>
+                        <option value="female">נקבה</option>
+                        <option value="other">אחר</option>
+                    </select>
+                </div>
+            </fieldset>
 
-            <div class="form-group">
-                <label for="email">כתובת אימייל:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+            <!-- פרטי התקשרות -->
+            <fieldset>
+                <legend>פרטי התקשרות</legend>
+                <div class="form-group">
+                    <label for="email">דוא"ל*</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">מספר טלפון*</label>
+                    <input type="tel" id="phoneNumber" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label for="alternatePhone">טלפון חלופי</label>
+                    <input type="tel" id="alternatePhone">
+                </div>
+            </fieldset>
 
-            <div class="form-group">
-                <label for="phone">מספר טלפון:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
+            <!-- כתובת -->
+            <fieldset>
+                <legend>כתובת מגורים</legend>
+                <div class="form-group">
+                    <label for="street">רחוב*</label>
+                    <input type="text" id="street" required>
+                </div>
+                <div class="form-group">
+                    <label for="houseNumber">מספר בית*</label>
+                    <input type="text" id="houseNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">עיר*</label>
+                    <input type="text" id="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">מיקוד</label>
+                    <input type="text" id="zipCode">
+                </div>
+            </fieldset>
 
-            <div class="form-group">
-                <label for="password">סיסמה:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+            <!-- תעסוקה -->
+            <fieldset>
+                <legend>פרטי תעסוקה</legend>
+                <div class="form-group">
+                    <label for="profession">מקצוע</label>
+                    <input type="text" id="profession">
+                </div>
+                <div class="form-group">
+                    <label for="workplace">מקום עבודה</label>
+                    <input type="text" id="workplace">
+                </div>
+                <div class="form-group">
+                    <label for="income">טווח הכנסה חודשית</label>
+                    <select id="income">
+                        <option value="">בחר/י</option>
+                        <option value="0-5000">0-5,000 ש"ח</option>
+                        <option value="5001-10000">5,001-10,000 ש"ח</option>
+                        <option value="10001-15000">10,001-15,000 ש"ח</option>
+                        <option value="15001+">מעל 15,001 ש"ח</option>
+                    </select>
+                </div>
+            </fieldset>
 
-            <div class="form-group">
-                <label for="confirm-password">אימות סיסמה:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-            </div>
+            <!-- העדפות -->
+            <fieldset>
+                <legend>העדפות אישיות</legend>
+                <div class="form-group">
+                    <label>תחומי עניין (סמן/סמני את כל המתאים):</label>
+                    <div>
+                        <input type="checkbox" id="hobby1" name="hobbies" value="reading">
+                        <label for="hobby1">קריאה</label>
+                        <input type="checkbox" id="hobby2" name="hobbies" value="sports">
+                        <label for="hobby2">ספורט</label>
+                        <input type="checkbox" id="hobby3" name="hobbies" value="travel">
+                        <label for="hobby3">טיולים</label>
+                        <!-- עוד תחומי עניין -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="newsletter">הרשמה לניוזלetter</label>
+                    <select id="newsletter">
+                        <option value="weekly">שבועי</option>
+                        <option value="monthly">חודשי</option>
+                        <option value="none">לא מעוניין/ת</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- סיסמה -->
+            <fieldset>
+                <legend>סיסמה</legend>
+                <div class="form-group">
+                    <label for="password">סיסמה*</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">אימות סיסמה*</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+            </fieldset>
 
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="newsletter" checked>
-                    אני רוצה לקבל עדכונים שבועיים
+                    <input type="checkbox" id="terms" required>
+                    אני מסכים/ה לתנאי השימוש ומדיניות הפרטיות
                 </label>
             </div>
 
-            <button type="submit">הירשם</button>
+            <button type="submit">השלם/י הרשמה</button>
         </form>
     </section>
+
+    <script>
+        document.getElementById('extensiveRegistrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // אימות סיסמה
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('הסיסמאות אינן תואמות. אנא נסה/י שוב.');
+                return;
+            }
+
+            // בדיקת תנאי שימוש
+            const termsAccepted = document.getElementById('terms').checked;
+            if (!termsAccepted) {
+                alert('יש לאשר את תנאי השימוש');
+                return;
+            }
+
+            // הודעת הצלחה
+            alert('ההרשמה בוצעה בהצלחה! ברוכים הבאים לשבוע טוב!');
+            this.reset();
+        });
+    </script>
 
     <footer>
         <p>&copy; 2025 כל הזכויות שמורות | שבוע טוב</p>
