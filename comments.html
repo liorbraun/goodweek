@@ -53,55 +53,26 @@
 
     <section>
         <h2>השאירו תגובה</h2>
-    <table id="dataTable">
-        <thead></thead>
-        <tbody></tbody>
-    </table>
+        <div class="container">
+        <h2>השאירו תגובה</h2>
+        <textarea id="commentInput" placeholder="הקלד תגובה..."></textarea>
+        <button onclick="addComment()">שלח</button>
+        <div id="commentsSection"></div>
+    </div>
 
     <script>
-        const sheetId = "16MzV2_XFBgUegh1LgiVuHpBBFfUvTa4Q8GR5kltXaWI";
-        const apiKey = "AIzaSyAkaE6XLnb6PUJVXspwgDtqcJU8NhE8KWs";
-        const range = "Sheet1!A1:D10"; // שנה את הטווח בהתאם לטבלה שלך
-        
-        async function fetchSheetData() {
-            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-            const response = await fetch(url);
-            const data = await response.json();
-            displayData(data.values);
-            console.log(response); 
-        }
-        
-        function displayData(rows) {
-            const table = document.getElementById("dataTable");
-            const thead = table.querySelector("thead");
-            const tbody = table.querySelector("tbody");
-            thead.innerHTML = "";
-            tbody.innerHTML = "";
-            
-            if (rows.length > 0) {
-                const headerRow = document.createElement("tr");
-                rows[0].forEach(header => {
-                    const th = document.createElement("th");
-                    th.textContent = header;
-                    headerRow.appendChild(th);
-                });
-                thead.appendChild(headerRow);
-                
-                rows.slice(1).forEach(row => {
-                    const tr = document.createElement("tr");
-                    row.forEach(cell => {
-                        const td = document.createElement("td");
-                        td.textContent = cell;
-                        tr.appendChild(td);
-                    });
-                    tbody.appendChild(tr);
-                });
+        function addComment() {
+            var commentText = document.getElementById("commentInput").value;
+            if (commentText.trim() !== "") {
+                var commentDiv = document.createElement("div");
+                commentDiv.className = "comment";
+                commentDiv.innerText = commentText;
+                document.getElementById("commentsSection").appendChild(commentDiv);
+                document.getElementById("commentInput").value = "";
             }
         }
-        
-        fetchSheetData();
     </script>
-
+        
     <footer>
         <p>&copy; 2025 כל הזכויות שמורות</p>
     </footer>
