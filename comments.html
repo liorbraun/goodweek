@@ -53,24 +53,53 @@
 
     <section>
         <h2>השאירו תגובה</h2>
-        <form id="commentForm" onsubmit="addComment(event)">
-            <label for="name">שם:</label>
-            <input type="text" id="name" name="name" required><br><br>
+    <table id="dataTable">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
 
-            <label for="comment">תגובה:</label><br>
-            <textarea id="comment" name="comment" rows="5" cols="40" required></textarea><br><br>
-
-            <button type="submit">שלח תגובה</button>
-        </form>
-
-        <div id="comment-box" class="comment-box">
-            <h3>תיבת תגובות</h3>
-            <p>כאן תוכלו לקרוא ולצפות בתגובות שפורסמו.</p>
-            <div id="comment-list" class="comment-list">
-                <!-- כאן יופיעו התגובות -->
-            </div>
-        </div>
-    </section>
+    <script>
+        const sheetId = "16MzV2_XFBgUegh1LgiVuHpBBFfUvTa4Q8GR5kltXaWI";
+        const apiKey = "AIzaSyAkaE6XLnb6PUJVXspwgDtqcJU8NhE8KWs";
+        const range = "Sheet1!A1:D10"; // שנה את הטווח בהתאם לטבלה שלך
+        
+        async function fetchSheetData() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            displayData(data.values);
+        }
+        
+        function displayData(rows) {
+            const table = document.getElementById("dataTable");
+            const thead = table.querySelector("thead");
+            const tbody = table.querySelector("tbody");
+            thead.innerHTML = "";
+            tbody.innerHTML = "";
+            
+            if (rows.length > 0) {
+                const headerRow = document.createElement("tr");
+                rows[0].forEach(header => {
+                    const th = document.createElement("th");
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                
+                rows.slice(1).forEach(row => {
+                    const tr = document.createElement("tr");
+                    row.forEach(cell => {
+                        const td = document.createElement("td");
+                        td.textContent = cell;
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+            }
+        }
+        
+        fetchSheetData();
+    </script>
 
     <footer>
         <p>&copy; 2025 כל הזכויות שמורות</p>
