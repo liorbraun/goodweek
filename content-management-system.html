@@ -1,0 +1,182 @@
+import React, { useState } from 'react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { PlusCircle, Save, Trash2 } from 'lucide-react';
+
+const ContentManagementSystem = () => {
+  // State for different content types
+  const [horoscopes, setHoroscopes] = useState([
+    { sign: 'חתול', content: 'השבוע תגלו שהספה החדשה שלכם נוחה במיוחד לשריטות!' },
+    { sign: 'ארנב', content: 'השבוע תמצאו גזר זהב!' }
+  ]);
+  
+  const [forecasts, setForecasts] = useState([
+    { day: 'ראשון', weather: '☀️', content: 'שמש זורחת ומפנקת' },
+    { day: 'שני', weather: '🌤️', content: 'מעונן חלקית' }
+  ]);
+  
+  const [gossips, setGossips] = useState([
+    { title: 'סיפור ראשון: שחקן מפורסם בסערה', content: 'הדיבור השבוע בעיר סובב סביב שחקן מפורסם' }
+  ]);
+
+  // State for new content items
+  const [newHoroscope, setNewHoroscope] = useState({ sign: '', content: '' });
+  const [newForecast, setNewForecast] = useState({ day: '', weather: '', content: '' });
+  const [newGossip, setNewGossip] = useState({ title: '', content: '' });
+
+  // Content management functions
+  const addHoroscope = () => {
+    if (newHoroscope.sign && newHoroscope.content) {
+      setHoroscopes([...horoscopes, newHoroscope]);
+      setNewHoroscope({ sign: '', content: '' });
+    }
+  };
+
+  const addForecast = () => {
+    if (newForecast.day && newForecast.weather && newForecast.content) {
+      setForecasts([...forecasts, newForecast]);
+      setNewForecast({ day: '', weather: '', content: '' });
+    }
+  };
+
+  const addGossip = () => {
+    if (newGossip.title && newGossip.content) {
+      setGossips([...gossips, newGossip]);
+      setNewGossip({ title: '', content: '' });
+    }
+  };
+
+  const deleteHoroscope = (index) => {
+    setHoroscopes(horoscopes.filter((_, i) => i !== index));
+  };
+
+  const deleteForecast = (index) => {
+    setForecasts(forecasts.filter((_, i) => i !== index));
+  };
+
+  const deleteGossip = (index) => {
+    setGossips(gossips.filter((_, i) => i !== index));
+  };
+
+  return (
+    <div className="max-w-6xl mx-auto p-4">
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle>מערכת ניהול תוכן - שבוע טוב</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="horoscopes" className="w-full">
+            <TabsList className="mb-4">
+              <TabsTrigger value="horoscopes">הורוסקופ</TabsTrigger>
+              <TabsTrigger value="forecasts">תחזית</TabsTrigger>
+              <TabsTrigger value="gossips">רכילות</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="horoscopes">
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <Input
+                    placeholder="מזל"
+                    value={newHoroscope.sign}
+                    onChange={(e) => setNewHoroscope({ ...newHoroscope, sign: e.target.value })}
+                  />
+                  <Textarea
+                    placeholder="תוכן"
+                    value={newHoroscope.content}
+                    onChange={(e) => setNewHoroscope({ ...newHoroscope, content: e.target.value })}
+                  />
+                  <Button onClick={addHoroscope}><PlusCircle className="w-4 h-4 mr-2" /> הוסף</Button>
+                </div>
+                {horoscopes.map((horoscope, index) => (
+                  <Card key={index} className="p-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-bold">{horoscope.sign}</h3>
+                        <p>{horoscope.content}</p>
+                      </div>
+                      <Button variant="destructive" onClick={() => deleteHoroscope(index)}>
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="forecasts">
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <Input
+                    placeholder="יום"
+                    value={newForecast.day}
+                    onChange={(e) => setNewForecast({ ...newForecast, day: e.target.value })}
+                  />
+                  <Input
+                    placeholder="מזג אוויר"
+                    value={newForecast.weather}
+                    onChange={(e) => setNewForecast({ ...newForecast, weather: e.target.value })}
+                  />
+                  <Textarea
+                    placeholder="תוכן"
+                    value={newForecast.content}
+                    onChange={(e) => setNewForecast({ ...newForecast, content: e.target.value })}
+                  />
+                  <Button onClick={addForecast}><PlusCircle className="w-4 h-4 mr-2" /> הוסף</Button>
+                </div>
+                {forecasts.map((forecast, index) => (
+                  <Card key={index} className="p-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-bold">{forecast.day} {forecast.weather}</h3>
+                        <p>{forecast.content}</p>
+                      </div>
+                      <Button variant="destructive" onClick={() => deleteForecast(index)}>
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="gossips">
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <Input
+                    placeholder="כותרת"
+                    value={newGossip.title}
+                    onChange={(e) => setNewGossip({ ...newGossip, title: e.target.value })}
+                  />
+                  <Textarea
+                    placeholder="תוכן"
+                    value={newGossip.content}
+                    onChange={(e) => setNewGossip({ ...newGossip, content: e.target.value })}
+                  />
+                  <Button onClick={addGossip}><PlusCircle className="w-4 h-4 mr-2" /> הוסף</Button>
+                </div>
+                {gossips.map((gossip, index) => (
+                  <Card key={index} className="p-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-bold">{gossip.title}</h3>
+                        <p>{gossip.content}</p>
+                      </div>
+                      <Button variant="destructive" onClick={() => deleteGossip(index)}>
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default ContentManagementSystem;
