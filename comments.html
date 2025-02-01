@@ -53,25 +53,26 @@
 
     <section>
         <h2>השאירו תגובה</h2>
-        <form id="commentForm" onsubmit="addComment(event)">
-            <label for="name">שם:</label>
-            <input type="text" id="name" name="name" required><br><br>
+        <div class="container">
+        <h2>השאירו תגובה</h2>
+        <textarea id="commentInput" placeholder="הקלד תגובה..."></textarea>
+        <button onclick="addComment()">שלח</button>
+        <div id="commentsSection"></div>
+    </div>
 
-            <label for="comment">תגובה:</label><br>
-            <textarea id="comment" name="comment" rows="5" cols="40" required></textarea><br><br>
-
-            <button type="submit">שלח תגובה</button>
-        </form>
-
-        <div id="comment-box" class="comment-box">
-            <h3>תיבת תגובות</h3>
-            <p>כאן תוכלו לקרוא ולצפות בתגובות שפורסמו.</p>
-            <div id="comment-list" class="comment-list">
-                <!-- כאן יופיעו התגובות -->
-            </div>
-        </div>
-    </section>
-
+    <script>
+        function addComment() {
+            var commentText = document.getElementById("commentInput").value;
+            if (commentText.trim() !== "") {
+                var commentDiv = document.createElement("div");
+                commentDiv.className = "comment";
+                commentDiv.innerText = commentText;
+                document.getElementById("commentsSection").appendChild(commentDiv);
+                document.getElementById("commentInput").value = "";
+            }
+        }
+    </script>
+        
     <footer>
         <p>&copy; 2025 כל הזכויות שמורות</p>
     </footer>
